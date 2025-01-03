@@ -1,5 +1,11 @@
 package org.onboard
 
-static void main(String[] args) {
-    println "Hello world!"
+import org.onboard.util.DbConnection
+
+class Main {
+    static void main(String[] args) {
+        CsvToDb.insertData()
+//       println(DbConnection.getDbConfig())
+        DbConnection.connectDb()
+    }
 }
