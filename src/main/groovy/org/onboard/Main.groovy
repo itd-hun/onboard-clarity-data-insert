@@ -83,8 +83,8 @@ class Main {
         def columns = resourcesList.remove(0)
 
         try {
-            resourcesList.each { it ->
-                List<String> rowData = it.split(",")
+            resourcesList.each { data ->
+                List<String> rowData = data.split(",")
                 String placeholders = rowData.collect { "?" }.join(",")
 
                 String query = "INSERT INTO z_resource ($columns) VALUES ($placeholders)"
