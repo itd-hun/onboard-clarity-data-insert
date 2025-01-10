@@ -4,6 +4,8 @@ import de.itdesign.clarity.rest.ClarityRestClient
 import groovy.json.JsonBuilder
 import groovy.sql.Sql
 import groovy.json.JsonSlurper
+import groovy.xml.MarkupBuilder
+import groovy.xml.XmlUtil
 
 class Main {
 
@@ -18,8 +20,18 @@ class Main {
             List<List<String>> tasksList = getCsvData("csv/tasks.csv")
             List<List<String>> assignmentsList = getCsvData("csv/assignments.csv")
 
-            List<Integer> projectsIdList = createProjects(sql, projectsList)
-            createTasks(sql, tasksList, projectsIdList)
+//            List<Integer> projectsIdList = createProjects(sql, projectsList)
+//            createTasks(sql, tasksList, projectsIdList)
+
+            String xmlString = generateResourceXmlXOG(resourcesList)
+//            println(xmlString)
+            def formattedXml = XmlUtil.serialize(xmlString)
+
+            String resultPath = "src/main/resources/xml/resources.xml"
+
+            def file = new File(resultPath)
+            file.parentFile.mkdirs()
+            file.write(formattedXml)
 
         } else {
             println("Db is not connected")
@@ -174,5 +186,31 @@ class Main {
                 taskList = taskList - projectTaskList
             }
         }
+    }
+
+    static String generateResourceXmlXOG(List<List<String>> resourcesList) {
+        resourcesList.remove(0)
+
+        def writer = new StringWriter()
+        MarkupBuilder xml = new MarkupBuilder(writer)
+
+        xml.NikuDataBus('xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                'xsi:noNamespaceSchemaLocation': '../xsd/nikuxog_department.xsd') {
+
+            Header(action: 'write', externalSource: 'ORACLE-FINANCIAL', objectType: 'resource', version: '6.0.12')
+
+            Resources {
+
+                resourcesList.forEach { eachDept ->
+                    Resource(resourceId: 'RS' + eachDept[0], isActive: eachDept[3].toLowerCase(), employmentType: 'Employee',
+                            resourceType: 'LABOR', externalId: '2323AAA') {
+                        PersonalInformation(lastName: eachDept[2], firstName: eachDept[1], emailAddress: "nk.example.com")
+                    }
+                }
+
+            }
+        }
+
+        return writer.toString()
     }
 }

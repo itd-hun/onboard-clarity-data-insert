@@ -1,31 +1,31 @@
-id,name,is_active
-1,John Doe,TRUE
-2,Jane Smith,TRUE
-3,Emily Johnson,TRUE
-4,Michael Brown,TRUE
-5,Christopher Lee,TRUE
-6,Sarah White,TRUE
-7,Robert Harris,FALSE
-8,Alice King,TRUE
-9,James Green,TRUE
-10,Olivia Scott,TRUE
-11,Benjamin Young,FALSE
-12,Linda Adams,TRUE
-13,David Nelson,TRUE
-14,Emma Carter,TRUE
-15,Lucas Wright,FALSE
-16,Sophia Turner,TRUE
-17,Daniel Walker,TRUE
-18,Grace Lewis,TRUE
-19,Ethan Roberts,TRUE
-20,Chloe Hill,TRUE
-21,Alexander Clark,TRUE
-22,Lily Mitchell,TRUE
-23,Jacob Baker,TRUE
-24,Ava Martinez,TRUE
-25,Mason Davis,TRUE
-26,Isabella Lopez,FALSE
-27,Elijah Rodriguez,TRUE
-28,Charlotte Evans,TRUE
-29,William Moore,TRUE
-30,Ella Phillips,FALSE
+id,firstname,lastname,is_active
+1,John,Doe,TRUE
+2,Li,Wei,TRUE
+3,Anna,Smith,TRUE
+4,Emma,Brown,TRUE
+5,David,Lee,TRUE
+6,Ava,White,TRUE
+7,James,Clark,TRUE
+8,Mia,Wilson,TRUE
+9,Lucas,King,TRUE
+10,Olivia,Scott,TRUE
+11,Amir,Ali,FALSE
+12,Isla,Adams,TRUE
+13,Leo,Martinez,TRUE
+14,Sophia,Moore,TRUE
+15,Max,Johnson,TRUE
+16,Emily,Roberts,TRUE
+17,Jack,Taylor,TRUE
+18,Lily,Anderson,TRUE
+19,Ethan,Walker,TRUE
+20,Chloe,Harris,TRUE
+21,Daniel,Lee,FALSE
+22,Grace,Evans,TRUE
+23,Noah,Garcia,TRUE
+24,Emma,Lopez,TRUE
+25,Lucas,Davis,TRUE
+26,Nina,Martins,TRUE
+27,Kai,Nguyen,TRUE
+28,Olga,Petrov,FALSE
+29,Jacob,Miller,TRUE
+30,Sarah,Jackson,TRUE
