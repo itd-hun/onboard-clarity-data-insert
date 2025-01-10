@@ -1,7 +1,7 @@
 package org.onboard
 
 import de.itdesign.clarity.rest.ClarityRestClient
-import de.itdesign.clarity.rest.RestResponse
+import groovy.json.JsonBuilder
 import groovy.sql.Sql
 import groovy.json.JsonSlurper
 
@@ -13,27 +13,13 @@ class Main {
 
         if (sql != null) {
             println("Db connected Successfully")
-            List<String> resourcesList = getCsvData("csv/resources.csv")
-            List<String> projectsList = getCsvData("csv/projects.csv")
-            List<String> tasksList = getCsvData("csv/tasks.csv")
-            List<String> assignmentsList = getCsvData("csv/assignments.csv")
+            List<List<String>> resourcesList = getCsvData("csv/resources.csv")
+            List<List<String>> projectsList = getCsvData("csv/projects.csv")
+            List<List<String>> tasksList = getCsvData("csv/tasks.csv")
+            List<List<String>> assignmentsList = getCsvData("csv/assignments.csv")
 
-            try {
-                ClarityRestClient rest
-                rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
-                RestResponse response = rest.GET("/projects/")
-
-                if (response?.statusCode == 200) {
-                    def jsonResponse = new JsonSlurper().parseText(response?.body)
-                    jsonResponse.each { project ->
-                        println "Project ID: ${project}"
-                    }
-                } else {
-                    println("Failed to fetch data. Status code: ${response?.statusCode}")
-                }
-            } catch (Exception e) {
-                println(e.getMessage())
-            }
+            List<Integer> projectsIdList = createProjects(sql, projectsList)
+            createTasks(sql, tasksList, projectsIdList)
 
         } else {
             println("Db is not connected")
@@ -66,26 +52,30 @@ class Main {
         return dbConfigData
     }
 
-    static List<String> getCsvData(String path) {
+    //Read file resource and get CSV data
+    static List<List<String>> getCsvData(String path) {
         String csvFilePath = getResourcePath(path)
-        List<String> resourcesList = readCsvFile(csvFilePath)
+        List<List<String>> resourcesList = readCsvFile(csvFilePath)
         return resourcesList
     }
 
     //Read CSV and return list of data
-    static List<String> readCsvFile(String filePath) {
+    static List<List<String>> readCsvFile(String filePath) {
         BufferedReader reader = null;
-        def result = null
+        def dataList = null
 
         try {
             reader = new BufferedReader(new FileReader(filePath))
-            result = reader.readLines()
+            def data = reader.readLines()
+            def result = []
+            data.each { it -> result.add(it.split(",")) }
+            dataList = result
         } catch (Exception e) {
             println(e.message)
         } finally {
             reader.close()
         }
-        return result
+        return dataList
     }
 
     //Get CSV file path from resources
@@ -95,4 +85,94 @@ class Main {
         return filePath
     }
 
+    //Get lookup number for status
+    static int getLookupValue(String status) {
+        if (status == "In Progress") {
+            return 1
+        } else if (status == "Completed") {
+            return 2
+        }
+        return 0
+    }
+
+    //Create new projects into ppm
+    static List<Integer> createProjects(Sql sql, List<List<String>> projectList) {
+
+        projectList.remove(0)
+
+        List<Integer> projectIds = []
+
+        projectList.each { it ->
+
+            def project = [
+                    name          : it[1],
+                    scheduleStart : it[2],
+                    scheduleFinish: it[3],
+                    isActive      : it[5]
+            ]
+            println(project)
+
+            try {
+                ClarityRestClient rest
+                rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+
+                def projectPayload = new JsonBuilder(project).toString()
+                def responseResult = rest.POST("/projects/", projectPayload)
+
+                if (responseResult?.statusCode == 200) {
+                    def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
+                    projectIds.add(jsonResponse._internalId)
+                    println(jsonResponse)
+                } else {
+                    def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
+                    println(jsonResponse)
+                }
+
+            } catch (Exception e) {
+                println(e.getMessage())
+            }
+        }
+        return projectIds
+    }
+
+    //Create tasks for related projects
+    static void createTasks(Sql sql, List<List<String>> taskList, List<Integer> projectsIdList) {
+
+        taskList.remove(0)
+
+        projectsIdList.each { projectId ->
+            if (taskList.size() >= 3) {
+
+                def projectTaskList = taskList.subList(0, 3)
+
+                projectTaskList.each { it ->
+
+                    def task = [
+                            name  : it[1],
+                            status: getLookupValue(it[3])
+                    ]
+
+                    try {
+                        ClarityRestClient rest
+                        rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+
+                        def taskPayload = new JsonBuilder(task).toString()
+                        def responseResult = rest.POST("/projects/$projectId/tasks", taskPayload)
+
+                        if (responseResult?.statusCode == 200) {
+                            def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
+                            println(jsonResponse)
+                        } else {
+                            def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
+                            println(jsonResponse)
+                        }
+
+                    } catch (Exception e) {
+                        println(e.getMessage())
+                    }
+                }
+                taskList = taskList - projectTaskList
+            }
+        }
+    }
 }
