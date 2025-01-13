@@ -164,10 +164,10 @@ class Main {
             Header(action: 'write', externalSource: 'ORACLE-FINANCIAL', objectType: 'resource', version: '6.0.12')
 
             Resources {
-                resourcesList.forEach { eachDept ->
-                    Resource(resourceId: 'RS' + eachDept[0], isActive: eachDept[3].toLowerCase(), employmentType: 'Employee',
+                resourcesList.forEach { eachResource ->
+                    Resource(resourceId: 'RS' + eachResource[0], isActive: eachResource[3].toLowerCase(), employmentType: 'Employee',
                             resourceType: 'LABOR', externalId: '2323AAA') {
-                        PersonalInformation(lastName: eachDept[2], firstName: eachDept[1], emailAddress: "nk.example.com")
+                        PersonalInformation(lastName: eachResource[2], firstName: eachResource[1], emailAddress: "nk.example.com")
                     }
                 }
             }
