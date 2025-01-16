@@ -10,6 +10,9 @@ import groovy.xml.XmlParser
 import groovy.xml.XmlUtil
 import org.onboard.util.UtilMethods
 
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 class Main {
 
     static CommonLogger logger = new CommonLogger(this)
@@ -92,6 +95,20 @@ class Main {
 
         projectList.each { eachProject ->
 
+            if (eachProject.any { it.value == null }) {
+                logger.error("Skipping current project: ${eachProject.name}. Reason: Invalid project data")
+                return
+            }
+
+            def dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")
+            def startDate = LocalDateTime.parse(eachProject.start as CharSequence, dateFormat)
+            def finishDate = LocalDateTime.parse(eachProject.finish as CharSequence, dateFormat)
+
+            if (startDate.isAfter(finishDate)) {
+                logger.error("Skipping current project: ${eachProject.name}. Reason: Project start date should not be greater than finish date")
+                return
+            }
+
             def project = [
                     name          : eachProject.name,
                     scheduleStart : eachProject.start,
@@ -136,6 +153,11 @@ class Main {
 
                 projectTaskList.each { eachTask ->
 
+                    if (eachTask.any { it.value == null }) {
+                        logger.error("Invalid task data for the task ${task.id}")
+                        return
+                    }
+
                     def task = [
                             name  : eachTask.name,
                             status: UtilMethods.getLookupValue(eachTask.status as String)
@@ -179,6 +201,10 @@ class Main {
 
             Resources {
                 resourcesList.forEach { eachResource ->
+                    if (eachResource.any { it.value == null }) {
+                        logger.error("Resource contains invalid data: ${eachResource}")
+                        return
+                    }
                     Resource(resourceId: 'RS' + eachResource.id, isActive: eachResource.is_active.toLowerCase(), employmentType: 'Employee',
                             resourceType: 'LABOR', externalId: '2323AAA') {
                         PersonalInformation(lastName: eachResource.lastname, firstName: eachResource.firstname, emailAddress: eachResource.email)
@@ -243,12 +269,14 @@ class Main {
                         Tasks {
                             project.tasks.each { task ->
                                 def taskMap = tasksList.find { it.name == task.name }
-                                println(taskMap)
                                 def taskAssignments = assignmentsList.findAll { it.task_id == taskMap.id }
-                                println(taskAssignments)
                                 Task(internalTaskID: task.internalId, outlineLevel: '1', taskID: task.code, name: task.name) {
                                     Assignments {
                                         taskAssignments.each { eachAssignment ->
+                                            if (eachAssignment.any { it.value == null }) {
+                                                logger.error("Assignment has invalid data: ${eachAssignment}")
+                                                return
+                                            }
                                             TaskLabor(actualWork: eachAssignment.actuals, remainingWork: eachAssignment.etc, resourceID: "RS" + eachAssignment.resource_id)
                                         }
                                     }
@@ -296,7 +324,7 @@ class Main {
                             def responseResult = rest.POST("/projects/$projectInternalId/teams", teamPayload)
 
                             if (responseResult?.statusCode == 200) {
-                                println("Added team successfully")
+                                logger.info("Team has been added successfully")
                             } else {
                                 def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
                                 logger.error("Error in adding team ${jsonResponse}")
@@ -311,12 +339,14 @@ class Main {
         }
     }
 
+    //get project internal id
     static String getProjectInternalId(String projectId) {
         String query = "SELECT ID FROM INV_INVESTMENTS WHERE CODE = ?"
         def result = sql.firstRow(query, projectId)
         return result.ID
     }
 
+    //get resource data
     static Map getResourceDetails(String resourceCode) {
         def query = "SELECT ID, UNIQUE_NAME FROM SRM_RESOURCES WHERE UNIQUE_NAME = ?"
         def resource = sql.firstRow(query, resourceCode)
