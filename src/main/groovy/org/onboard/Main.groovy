@@ -6,6 +6,7 @@ import groovy.json.JsonBuilder
 import groovy.sql.Sql
 import groovy.json.JsonSlurper
 import groovy.xml.MarkupBuilder
+import groovy.xml.XmlParser
 import groovy.xml.XmlUtil
 import org.onboard.util.UtilMethods
 
@@ -38,7 +39,7 @@ class Main {
 
             //Binding projects with it's tasks
             def projectsWithTask = getProjectsWithItsTasks(sql, projectsMapList, tasksIdList)
-
+            println(projectsWithTask)
             logger.info("Started generating XML Xog")
 
             //Xml Xog creation for Resources and Assignments
@@ -57,6 +58,10 @@ class Main {
             writeXmlToFile(assignmentResultPath, assignmentsFormattedXml)
 
             logger.info("Completed Xog Creation")
+
+            //Post Teams to the projects
+            String xmlData = new File(assignmentResultPath).text
+//            createTeamsForProjects(sql, xmlData)
 
 
         } else {
@@ -78,7 +83,6 @@ class Main {
                     scheduleFinish: eachProject.finish,
                     isActive      : eachProject.is_active
             ]
-            println(project)
 
             def projectMap = [:]
 
@@ -96,7 +100,7 @@ class Main {
                     projectsMapList.add(projectMap)
                 } else {
                     def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
-                    println(jsonResponse)
+                    println("New Project $jsonResponse._internalId")
                 }
 
             } catch (Exception e) {
@@ -133,7 +137,7 @@ class Main {
                         if (responseResult?.statusCode == 200) {
                             def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
                             taskIds.add(jsonResponse._internalId)
-                            println(jsonResponse)
+                            println("New Task $jsonResponse._internalId")
                         } else {
                             def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
                             println(jsonResponse)
@@ -224,10 +228,11 @@ class Main {
                 projectsWithTask.each { project ->
                     Project(name: project.name, projectID: project.code) {
                         Tasks {
-                            project.tasks.each { task ->
+                            project.tasks.eachWithIndex { task, index ->
+                                def temp = assignmentsList.subList(index * 2, (index * 2) + 2)
                                 Task(internalTaskID: task.internalId, outlineLevel: '1', taskID: task.code, name: task.name) {
                                     Assignments {
-                                        assignmentsList.each { eachAssignment ->
+                                        temp.each { eachAssignment ->
                                             TaskLabor(actualWork: eachAssignment.actuals, remainingWork: eachAssignment.etc, resourceID: "RS" + eachAssignment.resource_id)
                                         }
                                     }
@@ -247,6 +252,60 @@ class Main {
         def file = new File(filePath)
         file.parentFile.mkdirs()
         file.write(xmlContent)
+    }
+
+    //Create teams for projects
+    static void createTeamsForProjects(Sql sql, String xmlData) {
+        def xmlParser = new XmlParser()
+        def parsedXml = xmlParser.parseText(xmlData)
+
+        parsedXml.'Projects'.'Project'.each { eachProject ->
+            def projectName = eachProject.@name
+            def projectId = eachProject.@projectID
+
+            def projectInternalId = getProjectInternalId(sql, projectId)
+
+            if (projectInternalId) {
+                eachProject.'Tasks'.'Task'.each { eachTask ->
+                    eachTask.'Assignments'.'TaskLabor'.each { eachAssignment ->
+                        def resourceCode = eachAssignment.@resourceID
+                        def resourceDetails = getResourceDetails(sql, resourceCode)
+                        def teamData = [
+                                resource: resourceDetails.id
+                        ]
+                        try {
+                            ClarityRestClient rest
+                            rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+
+                            def teamPayload = new JsonBuilder(teamData).toString()
+                            def responseResult = rest.POST("/projects/$projectInternalId/teams", teamPayload)
+
+                            if (responseResult?.statusCode == 200) {
+                                println("Added team successfully")
+                            } else {
+                                println("Team not added")
+                            }
+
+                        } catch (Exception e) {
+                            println(e.getMessage())
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    static String getProjectInternalId(Sql sql, String projectId) {
+        String query = "SELECT ID FROM INV_INVESTMENTS WHERE CODE = ?"
+        def result = sql.firstRow(query, projectId)
+        return result.ID
+    }
+
+    static Map getResourceDetails(Sql sql, String resourceCode) {
+        def query = "SELECT ID, UNIQUE_NAME FROM SRM_RESOURCES WHERE UNIQUE_NAME = ?"
+        def resource = sql.firstRow(query, resourceCode)
+        return [id: resource.ID, code: resource.UNIQUE_NAME]
     }
 
 }
