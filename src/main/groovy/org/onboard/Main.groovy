@@ -39,7 +39,7 @@ class Main {
 
             //Binding projects with it's tasks
             def projectsWithTask = getProjectsWithItsTasks(sql, projectsMapList, tasksIdList)
-            println(projectsWithTask)
+
             logger.info("Started generating XML Xog")
 
             //Xml Xog creation for Resources and Assignments
@@ -61,7 +61,7 @@ class Main {
 
             //Post Teams to the projects
             String xmlData = new File(assignmentResultPath).text
-//            createTeamsForProjects(sql, xmlData)
+            createTeamsForProjects(sql, xmlData)
 
 
         } else {
