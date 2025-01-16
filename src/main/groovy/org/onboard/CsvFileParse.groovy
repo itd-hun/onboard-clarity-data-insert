@@ -2,10 +2,11 @@ package org.onboard
 
 class CsvFileParse {
     //Read file resource and get CSV data
-    static List<List<String>> getCsvData(String path) {
+    static List<Map> getCsvData(String path) {
         String csvFilePath = getResourcePath(path)
-        List<List<String>> resourcesList = readCsvFile(csvFilePath)
-        return resourcesList
+        List<List<String>> dataList = readCsvFile(csvFilePath)
+        List<Map> mappedData = mapDataWithHeaders(dataList)
+        return mappedData
     }
 
     //Read CSV and return list of data
@@ -32,5 +33,18 @@ class CsvFileParse {
         URL resourceUrl = CsvFileParse.class.classLoader.getResource(path)
         String filePath = resourceUrl ? resourceUrl.toURI().path : null
         return filePath
+    }
+
+    static List<Map> mapDataWithHeaders(List<List<String>> dataList) {
+        def result = []
+        def headers = dataList[0]
+        dataList[1..-1].each { data ->
+            def rowMap = [:]
+            headers.eachWithIndex { String key, int index ->
+                rowMap[key] = data[index]
+            }
+            result.add(rowMap)
+        }
+        return result
     }
 }

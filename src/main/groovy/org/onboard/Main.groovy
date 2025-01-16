@@ -23,10 +23,10 @@ class Main {
             logger.info("Db connected successfully")
 
             //Reading all required CSV and conversion
-            List<List<String>> resourcesList = CsvFileParse.getCsvData("csv/resources.csv")
-            List<List<String>> projectsList = CsvFileParse.getCsvData("csv/projects.csv")
-            List<List<String>> tasksList = CsvFileParse.getCsvData("csv/tasks.csv")
-            List<List<String>> assignmentsList = CsvFileParse.getCsvData("csv/assignments.csv")
+            List<Map> resourcesList = CsvFileParse.getCsvData("csv/resources.csv")
+            List<Map> projectsList = CsvFileParse.getCsvData("csv/projects.csv")
+            List<Map> tasksList = CsvFileParse.getCsvData("csv/tasks.csv")
+            List<Map> assignmentsList = CsvFileParse.getCsvData("csv/assignments.csv")
 
             logger.info("Successfully read CSV and completed Conversion")
 
@@ -43,6 +43,7 @@ class Main {
 
             //Xml Xog creation for Resources and Assignments
             String resourceXmlString = generateResourceXmlXOG(resourcesList)
+
             String assignmentXmlString = generateAssignmentXmlXog(assignmentsList, projectsWithTask)
 
             def resourcesFormattedXml = XmlUtil.serialize(resourceXmlString)
@@ -65,19 +66,17 @@ class Main {
     }
 
     //Create new projects
-    static List<Map> createProjects(Sql sql, List<List<String>> projectList) {
-
-        projectList.remove(0)
+    static List<Map> createProjects(Sql sql, List<Map> projectList) {
 
         def projectsMapList = []
 
-        projectList.each { it ->
+        projectList.each { eachProject ->
 
             def project = [
-                    name          : it[1],
-                    scheduleStart : it[2],
-                    scheduleFinish: it[3],
-                    isActive      : it[5]
+                    name          : eachProject.name,
+                    scheduleStart : eachProject.start,
+                    scheduleFinish: eachProject.finish,
+                    isActive      : eachProject.is_active
             ]
             println(project)
 
@@ -108,9 +107,8 @@ class Main {
     }
 
     //Create tasks for related projects
-    static List<Integer> createTasks(Sql sql, List<List<String>> taskList, List<Map> projectsMapList) {
+    static List<Integer> createTasks(Sql sql, List<Map> taskList, List<Map> projectsMapList) {
 
-        taskList.remove(0)
         List<Integer> taskIds = []
 
         projectsMapList.each { project ->
@@ -118,11 +116,11 @@ class Main {
 
                 def projectTaskList = taskList.subList(0, 3)
 
-                projectTaskList.each { it ->
+                projectTaskList.each { eachTask ->
 
                     def task = [
-                            name  : it[1],
-                            status: UtilMethods.getLookupValue(it[3])
+                            name  : eachTask.name,
+                            status: UtilMethods.getLookupValue(eachTask.status as String)
                     ]
 
                     try {
@@ -152,8 +150,7 @@ class Main {
     }
 
     //Create Resources Xml Xog
-    static String generateResourceXmlXOG(List<List<String>> resourcesList) {
-        resourcesList.remove(0)
+    static String generateResourceXmlXOG(List<Map> resourcesList) {
 
         def writer = new StringWriter()
         MarkupBuilder xml = new MarkupBuilder(writer)
@@ -165,9 +162,9 @@ class Main {
 
             Resources {
                 resourcesList.forEach { eachResource ->
-                    Resource(resourceId: 'RS' + eachResource[0], isActive: eachResource[3].toLowerCase(), employmentType: 'Employee',
+                    Resource(resourceId: 'RS' + eachResource.id, isActive: eachResource.is_active.toLowerCase(), employmentType: 'Employee',
                             resourceType: 'LABOR', externalId: '2323AAA') {
-                        PersonalInformation(lastName: eachResource[2], firstName: eachResource[1], emailAddress: "nk.example.com")
+                        PersonalInformation(lastName: eachResource.lastname, firstName: eachResource.firstname, emailAddress: eachResource.email)
                     }
                 }
             }
@@ -213,8 +210,7 @@ class Main {
     }
 
     //Create assignments Xml Xog
-    static String generateAssignmentXmlXog(List<List<String>> assignmentsList, List<Map> projectsWithTask) {
-        assignmentsList.remove(0)
+    static String generateAssignmentXmlXog(List<Map> assignmentsList, List<Map> projectsWithTask) {
 
         def writer = new StringWriter()
         MarkupBuilder xml = new MarkupBuilder(writer)
@@ -232,7 +228,7 @@ class Main {
                                 Task(internalTaskID: task.internalId, outlineLevel: '1', taskID: task.code, name: task.name) {
                                     Assignments {
                                         assignmentsList.each { eachAssignment ->
-                                            TaskLabor(actualWork: eachAssignment[4], remainingWork: eachAssignment[3], resourceID: "RS" + eachAssignment[2])
+                                            TaskLabor(actualWork: eachAssignment.actuals, remainingWork: eachAssignment.etc, resourceID: "RS" + eachAssignment.resource_id)
                                         }
                                     }
                                 }
