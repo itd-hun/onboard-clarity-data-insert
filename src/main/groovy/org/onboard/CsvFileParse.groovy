@@ -1,6 +1,11 @@
 package org.onboard
 
+import de.itdesign.clarity.logging.CommonLogger
+
 class CsvFileParse {
+
+    static CommonLogger logger = new CommonLogger(this)
+
     //Read file resource and get CSV data
     static List<Map> getCsvData(String path) {
         String csvFilePath = getResourcePath(path)
@@ -21,7 +26,7 @@ class CsvFileParse {
             data.each { it -> result.add(it.split(",")) }
             dataList = result
         } catch (Exception e) {
-            println(e.message)
+            logger.error("Error in reading CSV ${e.getMessage()}")
         } finally {
             reader.close()
         }

@@ -1,9 +1,11 @@
 package org.onboard
 
+import de.itdesign.clarity.logging.CommonLogger
 import groovy.sql.Sql
 
 class DbConnection {
 
+    static CommonLogger logger = new CommonLogger(this)
     //Connecting oracle database
     static Sql connectDb() {
         Map<String, String> configData = getDbConfig();
@@ -11,8 +13,14 @@ class DbConnection {
         try {
             sql = Sql.newInstance(configData.url, configData.username, configData.password, configData.driver)
             def result = sql.firstRow("SELECT 1 FROM DUAL")
+            if (result) {
+                return sql
+            } else {
+                logger.info("Database connection fail.")
+                return null
+            }
         } catch (Exception e) {
-            println(e.getMessage())
+            logger.error("Error in connecting to DB: ${e.getMessage()}")
         }
         return sql
     }

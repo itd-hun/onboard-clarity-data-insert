@@ -14,9 +14,12 @@ class Main {
 
     static CommonLogger logger = new CommonLogger(this)
 
+    static Sql sql = DbConnection.connectDb()
+
+    static ClarityRestClient rest = getClarityRestClient()
+
     static void main(String[] args) {
 
-        Sql sql = DbConnection.connectDb()
         logger.info("Application started")
 
         if (sql != null) {
@@ -31,21 +34,20 @@ class Main {
 
             logger.info("Successfully read CSV and completed Conversion")
 
-            logger.info("Started creating projects")
+            logger.info("Started creating projects and tasks")
 
             //Method calls for projects, tasks
-            def projectsMapList = createProjects(sql, projectsList)
-            def tasksIdList = createTasks(sql, tasksList, projectsMapList)
+            def projectsMapList = createProjects(projectsList)
+            def tasksIdList = createTasks(tasksList, projectsMapList)
 
             //Binding projects with it's tasks
-            def projectsWithTask = getProjectsWithItsTasks(sql, projectsMapList, tasksIdList)
+            def projectsWithTask = getProjectsWithItsTasks(projectsMapList, tasksIdList)
 
             logger.info("Started generating XML Xog")
 
             //Xml Xog creation for Resources and Assignments
             String resourceXmlString = generateResourceXmlXOG(resourcesList)
-
-            String assignmentXmlString = generateAssignmentXmlXog(assignmentsList, projectsWithTask)
+            String assignmentXmlString = generateAssignmentXmlXog(assignmentsList, tasksList, projectsWithTask)
 
             def resourcesFormattedXml = XmlUtil.serialize(resourceXmlString)
             def assignmentsFormattedXml = XmlUtil.serialize(assignmentXmlString)
@@ -61,8 +63,7 @@ class Main {
 
             //Post Teams to the projects
             String xmlData = new File(assignmentResultPath).text
-            createTeamsForProjects(sql, xmlData)
-
+            createTeamsForProjects(xmlData)
 
         } else {
             logger.error("Database connection failed. Could not connect to the database.")
@@ -70,8 +71,22 @@ class Main {
         }
     }
 
+    //Get clarity rest client connection
+    static ClarityRestClient getClarityRestClient() {
+        if (sql) {
+            try {
+                ClarityRestClient rest
+                rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+                return rest
+            } catch (Exception e) {
+                logger.error("Error in Connecting to REST Client ${e.getMessage()}")
+            }
+        }
+        return null
+    }
+
     //Create new projects
-    static List<Map> createProjects(Sql sql, List<Map> projectList) {
+    static List<Map> createProjects(List<Map> projectList) {
 
         def projectsMapList = []
 
@@ -86,9 +101,7 @@ class Main {
 
             def projectMap = [:]
 
-            try {
-                ClarityRestClient rest
-                rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+            if (rest) {
 
                 def projectPayload = new JsonBuilder(project).toString()
                 def responseResult = rest.POST("/projects/", projectPayload)
@@ -98,20 +111,21 @@ class Main {
                     projectMap['name'] = project.name
                     projectMap['id'] = jsonResponse._internalId
                     projectsMapList.add(projectMap)
+                    logger.info("Created new Project: ${jsonResponse._internalId}")
                 } else {
                     def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
-                    println("New Project $jsonResponse._internalId")
+                    logger.error("Error in project creation: ${jsonResponse}")
                 }
 
-            } catch (Exception e) {
-                println(e.getMessage())
+            } else {
+                logger.error("Unable to make request. Rest client not available.")
             }
         }
         return projectsMapList
     }
 
     //Create tasks for related projects
-    static List<Integer> createTasks(Sql sql, List<Map> taskList, List<Map> projectsMapList) {
+    static List<Integer> createTasks(List<Map> taskList, List<Map> projectsMapList) {
 
         List<Integer> taskIds = []
 
@@ -127,9 +141,7 @@ class Main {
                             status: UtilMethods.getLookupValue(eachTask.status as String)
                     ]
 
-                    try {
-                        ClarityRestClient rest
-                        rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+                    if (rest) {
 
                         def taskPayload = new JsonBuilder(task).toString()
                         def responseResult = rest.POST("/projects/$project.id/tasks", taskPayload)
@@ -137,15 +149,16 @@ class Main {
                         if (responseResult?.statusCode == 200) {
                             def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
                             taskIds.add(jsonResponse._internalId)
-                            println("New Task $jsonResponse._internalId")
+                            logger.info("Created new Task ${jsonResponse._internalId}")
                         } else {
                             def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
-                            println(jsonResponse)
+                            logger.error("Error in task creation ${jsonResponse}")
                         }
 
-                    } catch (Exception e) {
-                        println(e.getMessage())
+                    } else {
+                        logger.error("Unable to make request. Rest client not available.")
                     }
+
                 }
                 taskList = taskList - projectTaskList
             }
@@ -178,7 +191,7 @@ class Main {
     }
 
     //Get detailed projects with it's tasks
-    static List<Map> getProjectsWithItsTasks(Sql sql, List<Map> projectIdList, List<Integer> tasksIdsList) {
+    static List<Map> getProjectsWithItsTasks(List<Map> projectIdList, List<Integer> tasksIdsList) {
 
         def result = []
 
@@ -195,15 +208,15 @@ class Main {
 
                 def tasksIds = tasksIdsList[(index * 3)..(index * 3 + 2)]
 
-                tasksIds.each { taskId ->
+                tasksIds.eachWithIndex { taskId, i ->
                     String taskQuery = "SELECT PRNAME,PREXTERNALID FROM PRTASK p WHERE p.PRID = $taskId"
                     def taskData = sql.firstRow(taskQuery)
-                    def taskMap = [name: taskData.prname, code: taskData.prexternalid != null ? taskData.prexternalid : "~rmw", internalId: taskId]
+                    def taskMap = [name: taskData.prname, code: taskData.prexternalid != null ? taskData.prexternalid : "ts${i + 1}", internalId: taskId]
                     projectMap.tasks.add(taskMap)
                 }
 
             } catch (Exception e) {
-                println(e.getMessage())
+                logger.error("Error: ${e.getMessage()}")
             }
 
             result.add(projectMap)
@@ -214,7 +227,7 @@ class Main {
     }
 
     //Create assignments Xml Xog
-    static String generateAssignmentXmlXog(List<Map> assignmentsList, List<Map> projectsWithTask) {
+    static String generateAssignmentXmlXog(List<Map> assignmentsList, List<Map> tasksList, List<Map> projectsWithTask) {
 
         def writer = new StringWriter()
         MarkupBuilder xml = new MarkupBuilder(writer)
@@ -228,11 +241,14 @@ class Main {
                 projectsWithTask.each { project ->
                     Project(name: project.name, projectID: project.code) {
                         Tasks {
-                            project.tasks.eachWithIndex { task, index ->
-                                def temp = assignmentsList.subList(index * 2, (index * 2) + 2)
+                            project.tasks.each { task ->
+                                def taskMap = tasksList.find { it.name == task.name }
+                                println(taskMap)
+                                def taskAssignments = assignmentsList.findAll { it.task_id == taskMap.id }
+                                println(taskAssignments)
                                 Task(internalTaskID: task.internalId, outlineLevel: '1', taskID: task.code, name: task.name) {
                                     Assignments {
-                                        temp.each { eachAssignment ->
+                                        taskAssignments.each { eachAssignment ->
                                             TaskLabor(actualWork: eachAssignment.actuals, remainingWork: eachAssignment.etc, resourceID: "RS" + eachAssignment.resource_id)
                                         }
                                     }
@@ -255,7 +271,7 @@ class Main {
     }
 
     //Create teams for projects
-    static void createTeamsForProjects(Sql sql, String xmlData) {
+    static void createTeamsForProjects(String xmlData) {
         def xmlParser = new XmlParser()
         def parsedXml = xmlParser.parseText(xmlData)
 
@@ -263,19 +279,18 @@ class Main {
             def projectName = eachProject.@name
             def projectId = eachProject.@projectID
 
-            def projectInternalId = getProjectInternalId(sql, projectId)
+            def projectInternalId = getProjectInternalId(projectId)
 
             if (projectInternalId) {
                 eachProject.'Tasks'.'Task'.each { eachTask ->
                     eachTask.'Assignments'.'TaskLabor'.each { eachAssignment ->
                         def resourceCode = eachAssignment.@resourceID
-                        def resourceDetails = getResourceDetails(sql, resourceCode)
+                        def resourceDetails = getResourceDetails(resourceCode)
                         def teamData = [
                                 resource: resourceDetails.id
                         ]
-                        try {
-                            ClarityRestClient rest
-                            rest = new ClarityRestClient("admin", sql.getConnection(), "http://10.0.0.248:7080")
+
+                        if (rest) {
 
                             def teamPayload = new JsonBuilder(teamData).toString()
                             def responseResult = rest.POST("/projects/$projectInternalId/teams", teamPayload)
@@ -283,26 +298,26 @@ class Main {
                             if (responseResult?.statusCode == 200) {
                                 println("Added team successfully")
                             } else {
-                                println("Team not added")
+                                def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
+                                logger.error("Error in adding team ${jsonResponse}")
                             }
 
-                        } catch (Exception e) {
-                            println(e.getMessage())
+                        } else {
+                            logger.error("Unable to make request. REST client is not connected")
                         }
                     }
                 }
-
             }
         }
     }
 
-    static String getProjectInternalId(Sql sql, String projectId) {
+    static String getProjectInternalId(String projectId) {
         String query = "SELECT ID FROM INV_INVESTMENTS WHERE CODE = ?"
         def result = sql.firstRow(query, projectId)
         return result.ID
     }
 
-    static Map getResourceDetails(Sql sql, String resourceCode) {
+    static Map getResourceDetails(String resourceCode) {
         def query = "SELECT ID, UNIQUE_NAME FROM SRM_RESOURCES WHERE UNIQUE_NAME = ?"
         def resource = sql.firstRow(query, resourceCode)
         return [id: resource.ID, code: resource.UNIQUE_NAME]

@@ -1,889 +1,891 @@
-<?xml version="1.0" encoding="UTF-8"?><NikuDataBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../xsd/nikuxog_department.xsd">
-    
-  <Header action="write" externalSource="NIKU" objectType="project" version="7.1.0.3023"/>
-    
-  <Projects>
-        
-    <Project name="Project A" projectID="PR2139">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010240" outlineLevel="1" taskID="~rmw" name="Task 1">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010241" outlineLevel="1" taskID="~rmw" name="Task 2">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010242" outlineLevel="1" taskID="~rmw" name="Task 3">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project B" projectID="PR2140">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010243" outlineLevel="1" taskID="~rmw" name="Task 4">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010244" outlineLevel="1" taskID="~rmw" name="Task 5">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010245" outlineLevel="1" taskID="~rmw" name="Task 6">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project C" projectID="PR2141">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010246" outlineLevel="1" taskID="~rmw" name="Task 7">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010247" outlineLevel="1" taskID="~rmw" name="Task 8">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010248" outlineLevel="1" taskID="~rmw" name="Task 9">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project D" projectID="PR2142">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010249" outlineLevel="1" taskID="~rmw" name="Task 10">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010250" outlineLevel="1" taskID="~rmw" name="Task 11">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010251" outlineLevel="1" taskID="~rmw" name="Task 12">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project E" projectID="PR2143">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010252" outlineLevel="1" taskID="~rmw" name="Task 13">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010253" outlineLevel="1" taskID="~rmw" name="Task 14">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010254" outlineLevel="1" taskID="~rmw" name="Task 15">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project F" projectID="PR2144">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010255" outlineLevel="1" taskID="~rmw" name="Task 16">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010256" outlineLevel="1" taskID="~rmw" name="Task 17">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010257" outlineLevel="1" taskID="~rmw" name="Task 18">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project G" projectID="PR2145">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010258" outlineLevel="1" taskID="~rmw" name="Task 19">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010259" outlineLevel="1" taskID="~rmw" name="Task 20">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010260" outlineLevel="1" taskID="~rmw" name="Task 21">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project H" projectID="PR2146">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010261" outlineLevel="1" taskID="~rmw" name="Task 22">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010262" outlineLevel="1" taskID="~rmw" name="Task 23">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010263" outlineLevel="1" taskID="~rmw" name="Task 24">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project I" projectID="PR2147">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010264" outlineLevel="1" taskID="~rmw" name="Task 25">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010265" outlineLevel="1" taskID="~rmw" name="Task 26">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010266" outlineLevel="1" taskID="~rmw" name="Task 27">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project J" projectID="PR2148">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010267" outlineLevel="1" taskID="~rmw" name="Task 28">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010268" outlineLevel="1" taskID="~rmw" name="Task 29">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010269" outlineLevel="1" taskID="~rmw" name="Task 30">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project K" projectID="PR2149">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010270" outlineLevel="1" taskID="~rmw" name="Task 31">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010271" outlineLevel="1" taskID="~rmw" name="Task 32">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010272" outlineLevel="1" taskID="~rmw" name="Task 33">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project L" projectID="PR2150">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010273" outlineLevel="1" taskID="~rmw" name="Task 34">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010274" outlineLevel="1" taskID="~rmw" name="Task 35">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010275" outlineLevel="1" taskID="~rmw" name="Task 36">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project M" projectID="PR2151">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010276" outlineLevel="1" taskID="~rmw" name="Task 37">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010277" outlineLevel="1" taskID="~rmw" name="Task 38">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010278" outlineLevel="1" taskID="~rmw" name="Task 39">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project N" projectID="PR2152">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010279" outlineLevel="1" taskID="~rmw" name="Task 40">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010280" outlineLevel="1" taskID="~rmw" name="Task 41">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010281" outlineLevel="1" taskID="~rmw" name="Task 42">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project O" projectID="PR2153">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010282" outlineLevel="1" taskID="~rmw" name="Task 43">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010283" outlineLevel="1" taskID="~rmw" name="Task 44">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010284" outlineLevel="1" taskID="~rmw" name="Task 45">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project P" projectID="PR2154">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010285" outlineLevel="1" taskID="~rmw" name="Task 46">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010286" outlineLevel="1" taskID="~rmw" name="Task 47">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010287" outlineLevel="1" taskID="~rmw" name="Task 48">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project Q" projectID="PR2155">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010288" outlineLevel="1" taskID="~rmw" name="Task 49">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010289" outlineLevel="1" taskID="~rmw" name="Task 50">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010290" outlineLevel="1" taskID="~rmw" name="Task 51">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project R" projectID="PR2156">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010291" outlineLevel="1" taskID="~rmw" name="Task 52">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010292" outlineLevel="1" taskID="~rmw" name="Task 53">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010293" outlineLevel="1" taskID="~rmw" name="Task 54">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project S" projectID="PR2157">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010294" outlineLevel="1" taskID="~rmw" name="Task 55">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010295" outlineLevel="1" taskID="~rmw" name="Task 56">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010296" outlineLevel="1" taskID="~rmw" name="Task 57">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-        
-    <Project name="Project T" projectID="PR2158">
-            
-      <Tasks>
-                
-        <Task internalTaskID="5010297" outlineLevel="1" taskID="~rmw" name="Task 58">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
-                        
-            <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010298" outlineLevel="1" taskID="~rmw" name="Task 59">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
-                        
-            <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
-                      
-          </Assignments>
-                  
-        </Task>
-                
-        <Task internalTaskID="5010299" outlineLevel="1" taskID="~rmw" name="Task 60">
-                    
-          <Assignments>
-                        
-            <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
-                        
-            <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
-                      
-          </Assignments>
-                  
-        </Task>
-              
-      </Tasks>
-          
-    </Project>
-      
-  </Projects>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<NikuDataBus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="../xsd/nikuxog_department.xsd">
+
+    <Header action="write" externalSource="NIKU" objectType="project" version="7.1.0.3023"/>
+
+    <Projects>
+
+        <Project name="Project A" projectID="PR2239">
+
+            <Tasks>
+
+                <Task internalTaskID="5010560" outlineLevel="1" taskID="ts1" name="Task 1">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="12.85" remainingWork="13.00" resourceID="RS5"/>
+
+                        <TaskLabor actualWork="14.70" remainingWork="25.50" resourceID="RS8"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010561" outlineLevel="1" taskID="ts2" name="Task 2">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="25.60" remainingWork="16.00" resourceID="RS4"/>
+
+                        <TaskLabor actualWork="22.80" remainingWork="13.50" resourceID="RS10"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010562" outlineLevel="1" taskID="ts3" name="Task 3">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="19.00" resourceID="RS8"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="11.80" resourceID="RS1"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project B" projectID="PR2240">
+
+            <Tasks>
+
+                <Task internalTaskID="5010563" outlineLevel="1" taskID="ts1" name="Task 4">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.80" remainingWork="5.00" resourceID="RS15"/>
+
+                        <TaskLabor actualWork="14.80" remainingWork="15.00" resourceID="RS5"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010564" outlineLevel="1" taskID="ts2" name="Task 5">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="17.90" remainingWork="25.00" resourceID="RS2"/>
+
+                        <TaskLabor actualWork="17.95" remainingWork="14.00" resourceID="RS9"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010565" outlineLevel="1" taskID="ts3" name="Task 6">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="12.50" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="13.50" resourceID="RS10"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project C" projectID="PR2241">
+
+            <Tasks>
+
+                <Task internalTaskID="5010566" outlineLevel="1" taskID="ts1" name="Task 7">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.50" remainingWork="25.00" resourceID="RS20"/>
+
+                        <TaskLabor actualWork="16.60" remainingWork="27.00" resourceID="RS19"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010567" outlineLevel="1" taskID="ts2" name="Task 8">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="27.95" remainingWork="0.00" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="15.90" remainingWork="0.00" resourceID="RS20"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010568" outlineLevel="1" taskID="ts3" name="Task 9">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="25.00" resourceID="RS12"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="27.50" resourceID="RS1"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project D" projectID="PR2242">
+
+            <Tasks>
+
+                <Task internalTaskID="5010569" outlineLevel="1" taskID="ts1" name="Task 10">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="12.95" remainingWork="13.00" resourceID="RS7"/>
+
+                        <TaskLabor actualWork="13.95" remainingWork="14.00" resourceID="RS16"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010570" outlineLevel="1" taskID="ts2" name="Task 11">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="36.50" remainingWork="0.00" resourceID="RS15"/>
+
+                        <TaskLabor actualWork="23.95" remainingWork="0.00" resourceID="RS5"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010571" outlineLevel="1" taskID="ts3" name="Task 12">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="33.50" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="34.00" resourceID="RS12"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project E" projectID="PR2243">
+
+            <Tasks>
+
+                <Task internalTaskID="5010572" outlineLevel="1" taskID="ts1" name="Task 13">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.90" remainingWork="0.00" resourceID="RS12"/>
+
+                        <TaskLabor actualWork="14.60" remainingWork="0.00" resourceID="RS17"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010573" outlineLevel="1" taskID="ts2" name="Task 14">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.00" remainingWork="0.00" resourceID="RS15"/>
+
+                        <TaskLabor actualWork="14.50" remainingWork="15.00" resourceID="RS20"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010574" outlineLevel="1" taskID="ts3" name="Task 15">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="12.50" resourceID="RS10"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="14.00" resourceID="RS20"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project F" projectID="PR2244">
+
+            <Tasks>
+
+                <Task internalTaskID="5010575" outlineLevel="1" taskID="ts1" name="Task 16">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="34.20" remainingWork="25.00" resourceID="RS14"/>
+
+                        <TaskLabor actualWork="21.95" remainingWork="22.00" resourceID="RS17"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010576" outlineLevel="1" taskID="ts2" name="Task 17">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="29.80" remainingWork="0.00" resourceID="RS20"/>
+
+                        <TaskLabor actualWork="15.85" remainingWork="0.00" resourceID="RS7"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010577" outlineLevel="1" taskID="ts3" name="Task 18">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="24.00" resourceID="RS7"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="13.00" resourceID="RS13"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project G" projectID="PR2245">
+
+            <Tasks>
+
+                <Task internalTaskID="5010578" outlineLevel="1" taskID="ts1" name="Task 19">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.55" remainingWork="15.00" resourceID="RS19"/>
+
+                        <TaskLabor actualWork="11.90" remainingWork="12.00" resourceID="RS6"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010579" outlineLevel="1" taskID="ts2" name="Task 20">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="25.90" remainingWork="0.00" resourceID="RS3"/>
+
+                        <TaskLabor actualWork="21.75" remainingWork="0.00" resourceID="RS6"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010580" outlineLevel="1" taskID="ts3" name="Task 21">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="35.80" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="16.00" resourceID="RS14"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project H" projectID="PR2246">
+
+            <Tasks>
+
+                <Task internalTaskID="5010581" outlineLevel="1" taskID="ts1" name="Task 22">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.60" remainingWork="35.00" resourceID="RS11"/>
+
+                        <TaskLabor actualWork="13.95" remainingWork="24.00" resourceID="RS3"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010582" outlineLevel="1" taskID="ts2" name="Task 23">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="19.80" remainingWork="0.00" resourceID="RS19"/>
+
+                        <TaskLabor actualWork="21.75" remainingWork="0.00" resourceID="RS3"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010583" outlineLevel="1" taskID="ts3" name="Task 24">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="22.00" resourceID="RS8"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="13.50" resourceID="RS2"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project I" projectID="PR2247">
+
+            <Tasks>
+
+                <Task internalTaskID="5010584" outlineLevel="1" taskID="ts1" name="Task 25">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.80" remainingWork="0.00" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="11.80" remainingWork="22.00" resourceID="RS20"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010585" outlineLevel="1" taskID="ts2" name="Task 26">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="31.90" remainingWork="0.00" resourceID="RS15"/>
+
+                        <TaskLabor actualWork="35.95" remainingWork="0.00" resourceID="RS14"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010586" outlineLevel="1" taskID="ts3" name="Task 27">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="24.50" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="17.00" resourceID="RS15"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project J" projectID="PR2248">
+
+            <Tasks>
+
+                <Task internalTaskID="5010587" outlineLevel="1" taskID="ts1" name="Task 28">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.80" remainingWork="37.50" resourceID="RS13"/>
+
+                        <TaskLabor actualWork="31.90" remainingWork="22.00" resourceID="RS13"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010588" outlineLevel="1" taskID="ts2" name="Task 29">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="16.20" remainingWork="0.00" resourceID="RS16"/>
+
+                        <TaskLabor actualWork="26.30" remainingWork="0.00" resourceID="RS5"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010589" outlineLevel="1" taskID="ts3" name="Task 30">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="22.50" resourceID="RS18"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="13.00" resourceID="RS7"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project K" projectID="PR2249">
+
+            <Tasks>
+
+                <Task internalTaskID="5010590" outlineLevel="1" taskID="ts1" name="Task 31">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="11.95" remainingWork="12.00" resourceID="RS7"/>
+
+                        <TaskLabor actualWork="15.60" remainingWork="16.00" resourceID="RS16"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010591" outlineLevel="1" taskID="ts2" name="Task 32">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="21.70" remainingWork="0.00" resourceID="RS11"/>
+
+                        <TaskLabor actualWork="13.80" remainingWork="0.00" resourceID="RS3"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010592" outlineLevel="1" taskID="ts3" name="Task 33">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="15.50" resourceID="RS3"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="16.00" resourceID="RS11"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project L" projectID="PR2250">
+
+            <Tasks>
+
+                <Task internalTaskID="5010593" outlineLevel="1" taskID="ts1" name="Task 34">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="23.60" remainingWork="0.00" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="12.90" remainingWork="0.00" resourceID="RS6"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010594" outlineLevel="1" taskID="ts2" name="Task 35">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="21.70" remainingWork="0.00" resourceID="RS20"/>
+
+                        <TaskLabor actualWork="11.70" remainingWork="0.00" resourceID="RS11"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010595" outlineLevel="1" taskID="ts3" name="Task 36">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="23.00" resourceID="RS6"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="17.00" resourceID="RS4"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project M" projectID="PR2251">
+
+            <Tasks>
+
+                <Task internalTaskID="5010596" outlineLevel="1" taskID="ts1" name="Task 37">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="16.50" remainingWork="17.00" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="16.80" remainingWork="17.00" resourceID="RS8"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010597" outlineLevel="1" taskID="ts2" name="Task 38">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="33.90" remainingWork="36.80" resourceID="RS6"/>
+
+                        <TaskLabor actualWork="41.85" remainingWork="36.00" resourceID="RS12"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010598" outlineLevel="1" taskID="ts3" name="Task 39">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="34.00" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="38.50" resourceID="RS19"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project N" projectID="PR2252">
+
+            <Tasks>
+
+                <Task internalTaskID="5010599" outlineLevel="1" taskID="ts1" name="Task 40">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.50" remainingWork="17.00" resourceID="RS10"/>
+
+                        <TaskLabor actualWork="15.50" remainingWork="16.50" resourceID="RS8"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010600" outlineLevel="1" taskID="ts2" name="Task 41">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="23.80" remainingWork="0.00" resourceID="RS8"/>
+
+                        <TaskLabor actualWork="21.10" remainingWork="0.00" resourceID="RS2"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010601" outlineLevel="1" taskID="ts3" name="Task 42">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="34.00" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="37.00" resourceID="RS19"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project O" projectID="PR2253">
+
+            <Tasks>
+
+                <Task internalTaskID="5010602" outlineLevel="1" taskID="ts1" name="Task 43">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="24.50" remainingWork="25.00" resourceID="RS12"/>
+
+                        <TaskLabor actualWork="21.75" remainingWork="12.00" resourceID="RS3"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010603" outlineLevel="1" taskID="ts2" name="Task 44">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="31.85" remainingWork="0.00" resourceID="RS17"/>
+
+                        <TaskLabor actualWork="13.50" remainingWork="0.00" resourceID="RS13"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010604" outlineLevel="1" taskID="ts3" name="Task 45">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="17.00" resourceID="RS16"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="15.00" resourceID="RS5"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project P" projectID="PR2254">
+
+            <Tasks>
+
+                <Task internalTaskID="5010605" outlineLevel="1" taskID="ts1" name="Task 46">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="15.80" remainingWork="16.00" resourceID="RS13"/>
+
+                        <TaskLabor actualWork="13.95" remainingWork="14.00" resourceID="RS19"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010606" outlineLevel="1" taskID="ts2" name="Task 47">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="13.95" remainingWork="0.00" resourceID="RS2"/>
+
+                        <TaskLabor actualWork="15.90" remainingWork="0.00" resourceID="RS18"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010607" outlineLevel="1" taskID="ts3" name="Task 48">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="17.50" resourceID="RS16"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="26.50" resourceID="RS3"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project Q" projectID="PR2255">
+
+            <Tasks>
+
+                <Task internalTaskID="5010608" outlineLevel="1" taskID="ts1" name="Task 49">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="24.60" remainingWork="25.50" resourceID="RS18"/>
+
+                        <TaskLabor actualWork="26.40" remainingWork="17.50" resourceID="RS11"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010609" outlineLevel="1" taskID="ts2" name="Task 50">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="28.50" remainingWork="0.00" resourceID="RS14"/>
+
+                        <TaskLabor actualWork="23.20" remainingWork="0.00" resourceID="RS6"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010610" outlineLevel="1" taskID="ts3" name="Task 51">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="23.00" resourceID="RS13"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="14.50" resourceID="RS17"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project R" projectID="PR2256">
+
+            <Tasks>
+
+                <Task internalTaskID="5010611" outlineLevel="1" taskID="ts1" name="Task 52">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.60" remainingWork="17.00" resourceID="RS18"/>
+
+                        <TaskLabor actualWork="11.70" remainingWork="12.50" resourceID="RS2"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010612" outlineLevel="1" taskID="ts2" name="Task 53">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="33.50" remainingWork="0.00" resourceID="RS1"/>
+
+                        <TaskLabor actualWork="13.90" remainingWork="14.00" resourceID="RS4"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010613" outlineLevel="1" taskID="ts3" name="Task 54">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="26.00" remainingWork="12.00" resourceID="RS9"/>
+
+                        <TaskLabor actualWork="16.00" remainingWork="12.00" resourceID="RS4"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project S" projectID="PR2257">
+
+            <Tasks>
+
+                <Task internalTaskID="5010614" outlineLevel="1" taskID="ts1" name="Task 55">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="12.85" remainingWork="13.00" resourceID="RS18"/>
+
+                        <TaskLabor actualWork="14.55" remainingWork="15.00" resourceID="RS12"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010615" outlineLevel="1" taskID="ts2" name="Task 56">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="14.90" remainingWork="0.00" resourceID="RS17"/>
+
+                        <TaskLabor actualWork="15.85" remainingWork="0.00" resourceID="RS14"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010616" outlineLevel="1" taskID="ts3" name="Task 57">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="16.50" remainingWork="0.00" resourceID="RS14"/>
+
+                        <TaskLabor actualWork="26.60" remainingWork="0.00" resourceID="RS16"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+        <Project name="Project T" projectID="PR2258">
+
+            <Tasks>
+
+                <Task internalTaskID="5010617" outlineLevel="1" taskID="ts1" name="Task 58">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="24.50" remainingWork="15.50" resourceID="RS4"/>
+
+                        <TaskLabor actualWork="14.20" remainingWork="15.50" resourceID="RS2"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010618" outlineLevel="1" taskID="ts2" name="Task 59">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="19.90" remainingWork="0.00" resourceID="RS12"/>
+
+                        <TaskLabor actualWork="13.50" remainingWork="0.00" resourceID="RS10"/>
+
+                    </Assignments>
+
+                </Task>
+
+                <Task internalTaskID="5010619" outlineLevel="1" taskID="ts3" name="Task 60">
+
+                    <Assignments>
+
+                        <TaskLabor actualWork="0.00" remainingWork="14.50" resourceID="RS7"/>
+
+                        <TaskLabor actualWork="0.00" remainingWork="17.00" resourceID="RS18"/>
+
+                    </Assignments>
+
+                </Task>
+
+            </Tasks>
+
+        </Project>
+
+    </Projects>
+
 </NikuDataBus>
