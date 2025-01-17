@@ -314,6 +314,10 @@ class Main {
                     eachTask.'Assignments'.'TaskLabor'.each { eachAssignment ->
                         def resourceCode = eachAssignment.@resourceID
                         def resourceDetails = getResourceDetails(resourceCode)
+                        if(resourceDetails == null){
+                            logger.error("Cannot create Task Labor. Resource details are null")
+                            return
+                        }
                         def teamData = [
                                 resource: resourceDetails.id
                         ]
@@ -336,6 +340,9 @@ class Main {
                     }
                 }
             }
+            else{
+                logger.error("Cannot create team for invalid project")
+            }
         }
     }
 
@@ -343,6 +350,9 @@ class Main {
     static String getProjectInternalId(String projectId) {
         String query = "SELECT ID FROM INV_INVESTMENTS WHERE CODE = ?"
         def result = sql.firstRow(query, projectId)
+        if(!result){
+            return null
+        }
         return result.ID
     }
 
@@ -350,6 +360,9 @@ class Main {
     static Map getResourceDetails(String resourceCode) {
         def query = "SELECT ID, UNIQUE_NAME FROM SRM_RESOURCES WHERE UNIQUE_NAME = ?"
         def resource = sql.firstRow(query, resourceCode)
+        if(!resource){
+            return null
+        }
         return [id: resource.ID, code: resource.UNIQUE_NAME]
     }
 

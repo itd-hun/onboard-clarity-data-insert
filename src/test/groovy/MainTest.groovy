@@ -1,4 +1,6 @@
 import de.itdesign.clarity.rest.ClarityRestClient
+import groovy.sql.GroovyRowResult
+import groovy.sql.Sql
 import org.junit.jupiter.api.BeforeEach
 import org.onboard.Main
 
@@ -8,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.*
 import org.mockito.*
 
 class MainTest {
+
+    @Mock
+    Sql mockSql
 
     @Mock
     ClarityRestClient clarityRestClientMock  // Mock ClarityRestClient
@@ -58,5 +63,52 @@ class MainTest {
         result.each { project ->
             assertNotNull(project['id'])
         }
+    }
+
+    @Test
+    void testGetResourceDetails() {
+        String resourceCode = "RS11"
+
+        // Mock the behavior to return a GroovyRowResult (instead of a simple Map)
+        GroovyRowResult mockResult = new GroovyRowResult([ID: 1, UNIQUE_NAME: resourceCode])
+
+        when(mockSql.firstRow(anyString(), eq([resourceCode]))).thenReturn(mockResult)
+
+        def resource = main.getResourceDetails(resourceCode)
+
+        assertNotNull(resource)
+        assertEquals(resourceCode, resource.code)
+    }
+
+    @Test
+    void testGetResourceDetails_withNullResult() {
+        String resourceCode = "NON_EXISTENT"
+
+        // Mock the behavior to return null (resource not found)
+        when(mockSql.firstRow(anyString(), eq([resourceCode]))).thenReturn(null)
+
+        def resource = main.getResourceDetails(resourceCode)
+
+        assertNull(resource)
+    }
+
+    @Test
+    void testGetProjectInternalId_withValidData() {
+        String projectId = "PR2266"
+
+        def internalId = main.getProjectInternalId(projectId)
+
+        assertNotNull(internalId)
+    }
+
+    @Test
+    void testGetProjectInternalId_withNullResult() {
+        String projectId = "NON_EXISTENT"
+
+        when(mockSql.firstRow(anyString(), eq([projectId]))).thenReturn(null)
+
+        def internalId = main.getProjectInternalId(projectId)
+
+        assertNull(internalId)
     }
 }
