@@ -1,31 +1,31 @@
-id,name,is_active
-1,John Doe,1
-2,Jane Smith,1
-3,Emily Johnson,1
-4,Michael Brown,1
-5,Christopher Lee,1
-6,Sarah White,1
-7,Robert Harris,0
-8,Alice King,1
-9,James Green,1
-10,Olivia Scott,1
-11,Benjamin Young,0
-12,Linda Adams,1
-13,David Nelson,1
-14,Emma Carter,1
-15,Lucas Wright,0
-16,Sophia Turner,1
-17,Daniel Walker,1
-18,Grace Lewis,1
-19,Ethan Roberts,1
-20,Chloe Hill,1
-21,Alexander Clark,1
-22,Lily Mitchell,1
-23,Jacob Baker,1
-24,Ava Martinez,1
-25,Mason Davis,1
-26,Isabella Lopez,0
-27,Elijah Rodriguez,1
-28,Charlotte Evans,1
-29,William Moore,1
-30,Ella Phillips,0
+id,firstname,lastname,is_active,email
+1,John,Doe,TRUE,john.doe@example.com
+2,Li,Wei,TRUE,li.wei@example.com
+3,Anna,Smith,TRUE,anna.smith@example.com
+4,Emma,Brown,TRUE,emma.brown@example.com
+5,David,Lee,TRUE,david.lee@example.com
+6,Ava,White,TRUE,ava.white@example.com
+7,James,Clark,TRUE,james.clark@example.com
+8,Mia,Wilson,TRUE,mia.wilson@example.com
+9,Lucas,King,TRUE,lucas.king@example.com
+10,Olivia,Scott,TRUE,olivia.scott@example.com
+11,Amir,Ali,FALSE,amir.ali@example.com
+12,Isla,Adams,TRUE,isla.adams@example.com
+13,Leo,Martinez,TRUE,leo.martinez@example.com
+14,Sophia,Moore,TRUE,sophia.moore@example.com
+15,Max,Johnson,TRUE,max.johnson@example.com
+16,Emily,Roberts,TRUE,emily.roberts@example.com
+17,Jack,Taylor,TRUE,jack.taylor@example.com
+18,Lily,Anderson,TRUE,lily.anderson@example.com
+19,Ethan,Walker,TRUE,ethan.walker@example.com
+20,Chloe,Harris,TRUE,chloe.harris@example.com
+21,Daniel,Lee,FALSE,daniel.lee@example.com
+22,Grace,Evans,TRUE,grace.evans@example.com
+23,Noah,Garcia,TRUE,noah.garcia@example.com
+24,Emma,Lopez,TRUE,emma.lopez@example.com
+25,Lucas,Davis,TRUE,lucas.davis@example.com
+26,Nina,Martins,TRUE,nina.martins@example.com
+27,Kai,Nguyen,TRUE,kai.nguyen@example.com
+28,Olga,Petrov,FALSE,olga.petrov@example.com
+29,Jacob,Miller,TRUE,jacob.miller@example.com
+30,Sarah,Jackson,TRUE,sarah.jackson@example.com
