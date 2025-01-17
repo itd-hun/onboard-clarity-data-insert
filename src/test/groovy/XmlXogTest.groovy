@@ -8,16 +8,14 @@ class XmlXogTest {
 
     @Test
     void testGenerateResourceXmlXOG() {
-        // Prepare input data
+        // Mock input data
         List<Map> resourcesList = [
                 [id: '123', is_active: 'true', lastname: 'Doe', firstname: 'John', email: 'john.doe@example.com'],
                 [id: '456', is_active: 'false', lastname: 'Smith', firstname: 'Jane', email: 'jane.smith@example.com']
         ]
 
-        // Call the method to generate XML
         String xmlOutput = Main.generateResourceXmlXOG(resourcesList)
 
-        // Parse the generated XML for validation
         def parsedXml = new XmlParser().parseText(xmlOutput)
 
         // Validate resources section
@@ -53,7 +51,7 @@ class XmlXogTest {
 
     @Test
     void testGenerateAssignmentXmlXog() {
-        // Prepare input data for assignments, tasks, and projects
+        // mock data for assignments, tasks, and projects
         List<Map> assignmentsList = [
                 [task_id: '1', resource_id: '123', actuals: '20', etc: '10'],
                 [task_id: '2', resource_id: '456', actuals: '30', etc: '15']
@@ -71,10 +69,8 @@ class XmlXogTest {
                 ]]
         ]
 
-        // Call the method to generate XML
         String xmlOutput = Main.generateAssignmentXmlXog(assignmentsList, tasksList, projectsWithTask)
 
-        // Parse the generated XML for validation
         def parsedXml = new XmlParser().parseText(xmlOutput)
 
         // Validate projects section

@@ -24,10 +24,8 @@ class CsvFileParseTest {
             ]
         }
 
-        // Test the getCsvData method
         List<Map> result = CsvFileParse.getCsvData("mocked/path")
 
-        // Assertions
         assertNotNull(result)
         assertEquals(2, result.size())  // Should have two rows of data
         assertEquals("John", result[0].name)
