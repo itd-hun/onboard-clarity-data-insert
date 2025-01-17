@@ -166,7 +166,7 @@ class Main {
                     if (rest) {
 
                         def taskPayload = new JsonBuilder(task).toString()
-                        def responseResult = rest.POST("/projects/$project.id/tasks", taskPayload)
+                        def responseResult = rest.POST("/projects/${project.id}/tasks", taskPayload)
 
                         if (responseResult?.statusCode == 200) {
                             def jsonResponse = new JsonSlurper().parseText(responseResult?.body)
